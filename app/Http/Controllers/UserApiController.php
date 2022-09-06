@@ -23,6 +23,15 @@ class UserApiController extends Controller
         if($request->isMethod('post')){
             $data=$request->all();
             // return $data;
+
+            $user= new User();
+            $user->name = $data['name'];
+            $user->email = $data['email'];
+            $user->password = bcrypt($data['password']);
+            $user->save();
+
+            $message= 'User created successfully';
+            return response()->json(['message'=>$message],201);
         }
     }
 }
