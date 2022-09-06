@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/user/{id?}',[UserApiController::class, 'showUser'])
+Route::get('/users/{id?}',[UserApiController::class, 'showUser']);
+Route::post('/add-user',[UserApiController::class, 'addUser']);
